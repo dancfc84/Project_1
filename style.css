@@ -1,0 +1,441 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Permanent+Marker&display=swap');
+
+
+* {
+  font-family: 'Permanent Marker', cursive;
+
+}
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #070600;
+
+}
+
+h1 {
+  color: #ff7f11;
+  text-transform: uppercase;
+  font-size: 4rem;
+  margin: 10px;
+}
+
+.instructions {
+  color: #ff7f11;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin: 10px;
+  margin-right: 60px;
+} 
+
+h4 {
+  margin: 5px;
+}
+
+#startBtn {
+  display: flex;
+  height :30px;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border: #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  background-color: #070600;
+  color: #ff7f11;
+  padding: 20px;
+}
+
+#retryBtn {
+  display: flex;
+  height :30px;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border: #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  background-color: #070600;
+  color: #ff7f11;
+  padding: 20px;
+}
+
+#gameOverText {
+  display: flex;
+  height :30px;
+  font-size: 3rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #070600;
+  color: #ff7f11;
+  padding: 15px;
+}
+
+.gameContainer {
+  display: flex;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  height: 740px;
+  border: #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  margin-right: 40px;
+}
+
+.gameOverGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  height: 740px;
+  border: #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  margin-right: 40px;
+}
+
+.cellNextShape {
+  background-color: black;
+  margin: 0px;
+  height: 30px;
+  width:28px;
+  color: white;
+  border: grey 1px solid;
+}
+
+#muteBtn {
+  display: flex;
+  height :30px;
+  width: 30px;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #ff7f11;
+  margin-bottom: 20px;
+  filter: invert(53%) sepia(44%) saturate(2190%) hue-rotate(352deg) brightness(102%) contrast(101%);
+
+}
+
+.cell {
+  background-color: black;
+  border: grey 0.25px solid;
+  height: 35px;
+  width: 40px;
+  color: white;
+}
+
+.user-info-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;;
+ 
+}
+
+.nextShape {
+  width: 300px;
+  margin: 0px 0px 20px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  border: #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+}
+
+.scoreBoard {
+  height: 70px;
+  width: 300px;
+  border-bottom: none;
+  border:   #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  color: #ff7f11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+ 
+}
+
+.lines {
+  height: 70px;
+  width: 300px;
+  border: #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  color: #ff7f11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+
+.highScore {
+  height: 70px;
+  width: 300px;
+  border:   #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  color: #ff7f11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.level {
+  height: 70px;
+  width: 300px;
+  border:   #beb7a4 1px solid;
+  outline: 2px solid #ff7f11;
+  color: #ff7f11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.gameOverCell {
+  background-color: silver;
+}
+
+.ishape {
+  background-color: aqua;
+}
+
+.jshape {
+  background-color: blueviolet;
+}
+
+.lshape {
+  background-color: orange;
+}
+
+.oshape {
+  background-color: yellow;;
+}
+
+.zshape {
+  background-color: #ff3e41
+}
+
+.tshape {
+  background-color: purple;
+}
+
+.sshape {
+  background-color: #33ffc2
+}
+
+
+@media all and (max-width: 1000px) {
+
+  .instructions {
+    display: none;
+  }
+}
+
+@media all and (max-width: 800px) {
+
+    .gameContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #muteBtn {
+      margin: 0px;
+      height: 20px;
+
+    }
+
+    h1 {
+      margin: 5px 0px;
+    }
+    .grid-container {
+      width: 225px;
+      height: 400px;
+      margin-top: 20px;
+      margin-right: 0px;
+    }
+    .user-info-container {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .gameOverGrid{
+      width: 225px;
+      height: 400px;
+      margin-top: 20px;
+      margin-right: 0px;
+    }
+
+    .nextShape {
+      width: 160px;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0px;
+    }
+
+    .cellNextShape {
+      height: 15px;
+      width:14px;
+    }
+
+    .userInfo {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #gameOverText {
+      height :30px;
+      font-size: 1.5rem;
+    }
+
+    .cell {
+      border: grey 0.5px solid;
+      height: 18px;
+      width: 20px;
+      color: white;
+    }
+    
+    .highScore {
+      height: 70px;
+      width: 80px;
+      font-size: 0.8rem;
+
+    }
+    
+    .level {
+      height: 70px;
+      width: 80px;
+      font-size: 0.8rem;
+
+    }
+
+    .lines {
+      height: 70px;
+      width: 80px;
+      font-size: 0.8rem;
+
+    }
+
+    .scoreBoard {
+      height: 70px;
+      width: 80px;
+      font-size: 0.8rem;
+      margin-top: 20px;
+
+    }
+    .ishape {
+      background-color: aqua;
+    }
+    
+    .jshape {
+      background-color: blueviolet;
+    }
+    
+    .lshape {
+      background-color: orange;
+    }
+    
+    .oshape {
+      background-color: yellow;;
+    }
+    
+    .zshape {
+      background-color: #ff3e41
+    }
+    
+    .tshape {
+      background-color: purple;
+    }
+    
+    .sshape {
+      background-color: #33ffc2
+    }
+    #startBtn {
+      height :20px;
+      font-size: 1rem;
+      padding: 15px;
+    }
+
+    #retryBtn {
+      height :20px;
+      font-size: 1rem;
+      padding: 15px;
+    }
+
+    
+}
+
+@media all and (max-height: 800px) {
+
+  h1{
+    display: none;
+  }
+
+  .scoreBoard {
+    padding-top: 0px;
+  }
+
+  .lines {
+    padding-top: 0px;
+  }
+
+  .highScore {
+    padding-top: 0px;
+
+  }
+
+  .level {
+    padding-top: 0px;
+  }
+
+
+  .grid-container {
+    margin-top: 0px;
+  }
+
+}
+
+@media all and (max-height: 700px) {
+
+ body {
+   margin: 0px;
+   margin-top: 5px;
+ }
+ .gameContainer {
+   margin-top: 5px;
+ }
+
+  .user-info-container {
+    margin-top: 10px;
+  }
+  .nextShape {
+    margin: 10px 0px;
+  }
+
+  #muteBtn {
+    display: none;
+  }
+
+}
+
+
