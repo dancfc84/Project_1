@@ -162,3 +162,4 @@ Everytime a line is removed the score, and lines cleared is updated. If you get 
 ##Screenshots Final Product##
 
 
+![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%201.jpg)
