@@ -136,19 +136,19 @@ const checkLines = () => {
 }
 
 const music = () => {
-  audioElem.src = 'https://git.generalassemb.ly/dancfc84/Project/blob/master/Sounds/Tetris.mp3?raw=true'
+  audioElem.src = 'https://github.com/dancfc84/Project_1/blob/master/Sounds/Tetris.mp3'
   audioElem.loop = true;
   audioElem.play()
 }
 
 const gameOverMusic = () => {
-  audioElem.src = 'https://git.generalassemb.ly/dancfc84/Project/blob/master/Sounds/game-over.mp3?raw=true'
+  audioElem.src = 'https://github.com/dancfc84/Project_1/blob/master/Sounds/game-over.mp3'
   audioElem.loop = false;
   audioElem.play()
 }
 
 const clearSound = () => {
-  const clearSound = new Audio('https://git.generalassemb.ly/dancfc84/Project/blob/master/Sounds/clear.wav?raw=true')
+  const clearSound = new Audio('https://github.com/dancfc84/Project_1/blob/master/Sounds/clear.wav')
   if (!muteBtn.classList.contains('muted')) {
     clearSound.play()
   }
