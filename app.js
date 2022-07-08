@@ -160,12 +160,12 @@ muteBtn.addEventListener('click', function () {
   if (muteBtn.classList.contains('muted')) {
     console.log('turn off');
     audioElem.muted = false;
-    muteBtn.src = "https://raw.git.generalassemb.ly/dancfc84/Project/master/SVG/audio-speaker-on-svgrepo-com.svg?token=AAAJWV7SXVC2WNOELCBC4GLCNUC7A"
+    muteBtn.src = "https://raw.githubusercontent.com/dancfc84/Project_1/master/SVG/muted-speaker-svgrepo-com.svg"
     muteBtn.classList.remove('muted')
   } else {
     console.log('turn on');
     audioElem.muted = true;
-    muteBtn.src = "https://raw.git.generalassemb.ly/dancfc84/Project/master/SVG/muted-speaker-svgrepo-com.svg?token=AAAJWV6ER2IJZV46T32ITQLCOUSPW"
+    muteBtn.src = "https://raw.githubusercontent.com/dancfc84/Project_1/master/SVG/audio-speaker-on-svgrepo-com.svg"
     muteBtn.classList.add('muted')
   }
 })
