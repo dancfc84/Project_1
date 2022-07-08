@@ -1,23 +1,22 @@
 
-
-##Overview
+## Overview
 
 In my first project for the General Assembly Software Engineering Flex course, I was given the task of building an arcade game; I decided to choose Tetris.
 
-##Brief
+## Brief
 
 - Render a game in the browser
 - Use JavaScript, CSS and HTML
 - Use JavaScript for DOM manipulation
 - Deploy the game using GitHub pages
 
-##Game Requirements
+## Game Requirements
 
 - The game should stop if a Tetrimino fills the highest row of the game board
 - The player should be able to rotate each Tetrimino around its own axis
 - If a line is completed it should be removed and the pieces above should move down a row
 
-##Technologies Used
+## Technologies Used
 
 - HTML
 - CSS
@@ -25,7 +24,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - Git
 - GitHub Pages
 
-##How the game works
+## How the game works
 
 - When a start button is pressed a 10 x 20 grid is created
 
@@ -114,7 +113,7 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
 
 - When the shape reaches the bottom of the grid or can’t move down past another Tetrimino the class ‘full’ is added to the cell and a new shape created.
 
-##Line Completion
+## Line Completion
 
 - I split the cells array into chunks of 10 which signifies a line in my grid, then a for loop iterates through each row of the chunks of 10 cells, if all the cells contain the class ‘full’ the row of cells are removed from the array and the line of divs are removed from the grid.
 
@@ -169,6 +168,6 @@ const checkLines = () => {
 
 - Everytime a line is removed the score, and lines cleared is updated. If you get the top score this is updated as soon as you surpass it. The level is linked to how many rows you have cleared.
 
-##Screenshots Final Product
+## Screenshots Final Product
 
 ![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%201.jpg)
