@@ -6,7 +6,6 @@ const startBtn = document.querySelector("#startBtn")
 let currHighScore = JSON.parse(localStorage.getItem('highScore'))
 const audioElem = document.querySelector('audio')
 const muteBtn = document.getElementById('muteBtn')
-const retryBtn = document.getElementById('retryBtn')
 const cells = [];
 const nextShapeCells = [];
 const shapes = ['ishape', 'jshape', 'oshape', 'lshape', 'zshape', 'tshape', 'sshape'];
@@ -16,16 +15,11 @@ let currLoc = 4;
 let currRot = 0;
 let currShape = '';
 let nextShape = '';
-let nextShapeLoc;
-let futLoc;
-let futRot;
 let currScore = 0;
 let linesClearedTotal = 0;
-let intervalId;
 let down = false;
 let isGameOver = false;
 let decision;
-let timer; // current timeout id to clear
 let currLevel = 1;
 let time = 700; // dynamic interval
 
@@ -92,48 +86,7 @@ const createGrid = () => {
   }
 }
 
-const checkLines = () => {
-  const chunk = 10;
-  let tempArray = [];
-  let lineCheck = [];
-  let linesCleared = 0;
-  let rowNum = -1;
-  const isFalse = (element) => element === false
-  for (let i = 0; i < cells.length; i += chunk) {
-    tempArray = cells.slice(i, i + chunk) //Temparray splits all the cells into blocks of 10 and puts them in temparray
-    rowNum += 1;
 
-    for (let i = 0; i < tempArray.length; i++) {
-      const value = tempArray[i].classList.contains('full'); // Returns a true or false value depending on whether the full class added to any of the cells
-      lineCheck.push(value) // adds it to lineCheck array
-
-    }
-    if (lineCheck.some(isFalse)) { //If any are false do nothing
-      console.log('false');
-
-    } else { // if true splice out the cells of the array
-      cells.splice(rowNum * 10, 10)
-      linesCleared += 1
-      linesClearedTotal += 1 // This needs resetting on game over!!!
-      clearSound()
-      tempArray.forEach(cell => {
-        
-        cell.remove() //removes the cell one by one
-        const newCell = document.createElement('div')
-        newCell.classList.add('cell')
-        //adds the new cells to both the grid and the cells array
-        grid.prepend(newCell) 
-        cells.unshift(newCell)
-
-      })
-    }
-    lineCheck = []
-  }
-  score(linesCleared, linesClearedTotal)
-  levelFunc()
-  topScore()
-
-}
 
 const music = () => {
   audioElem.src = 'https://github.com/dancfc84/Project_1/blob/master/Sounds/Tetris.mp3'
@@ -146,6 +99,7 @@ const gameOverMusic = () => {
   audioElem.loop = false;
   audioElem.play()
 }
+
 
 const clearSound = () => {
   const clearSound = new Audio('https://github.com/dancfc84/Project_1/blob/master/Sounds/clear.wav')
@@ -160,35 +114,15 @@ muteBtn.addEventListener('click', function () {
   if (muteBtn.classList.contains('muted')) {
     console.log('turn off');
     audioElem.muted = false;
-    muteBtn.src = "https://raw.githubusercontent.com/dancfc84/Project_1/master/SVG/muted-speaker-svgrepo-com.svg"
+    muteBtn.src = "https://raw.githubusercontent.com/dancfc84/Project_1/master/SVG/audio-speaker-on-svgrepo-com.svg"
     muteBtn.classList.remove('muted')
   } else {
     console.log('turn on');
     audioElem.muted = true;
-    muteBtn.src = "https://raw.githubusercontent.com/dancfc84/Project_1/master/SVG/audio-speaker-on-svgrepo-com.svg"
+    muteBtn.src = "https://raw.githubusercontent.com/dancfc84/Project_1/master/SVG/muted-speaker-svgrepo-com.svg"
     muteBtn.classList.add('muted')
   }
 })
-
-
-
-
-const score = (linesCleared, linesClearedTotal) => {
-  if (linesCleared === 1) {
-    currScore += 40
-  } else if (linesCleared === 2) {
-    currScore += 100
-  } else if (linesCleared === 3) {
-    currScore += 300
-  } else if (linesCleared >= 4) {
-    currScore += 1200
-  }
-
-  document.querySelector('.currScore').innerHTML = currScore
-  document.querySelector('.currLineAmount').innerHTML = linesClearedTotal
-
-}
-
 
 const createNextShapeDisplay = () => {
 
@@ -203,6 +137,8 @@ const createNextShapeDisplay = () => {
   }
 
 }
+
+
 
 const createScoreLevelLinesDisplay = () => {
 
@@ -257,6 +193,30 @@ const createScoreLevelLinesDisplay = () => {
   levelParagraph.classList.add('currLevel')
   levelParagraph.innerHTML = currLevel
 }
+
+
+
+
+
+
+const score = (linesCleared, linesClearedTotal) => {
+  if (linesCleared === 1) {
+    currScore += 40
+  } else if (linesCleared === 2) {
+    currScore += 100
+  } else if (linesCleared === 3) {
+    currScore += 300
+  } else if (linesCleared >= 4) {
+    currScore += 1200
+  }
+
+  document.querySelector('.currScore').innerHTML = currScore
+  document.querySelector('.currLineAmount').innerHTML = linesClearedTotal
+
+}
+
+
+
 
 
 const addNewShape = () => {
@@ -328,6 +288,49 @@ const removeNextShape = (nextShape) => {
     nextShapeCells[array[0][i] + nextShapeLoc].classList.remove(nextShape) //remove the currShape class from the elements
   }
 } 
+
+const checkLines = () => {
+  const chunk = 10;
+  let tempArray = [];
+  let lineCheck = [];
+  let linesCleared = 0;
+  let rowNum = -1;
+  const isFalse = (element) => element === false
+  for (let i = 0; i < cells.length; i += chunk) {
+    tempArray = cells.slice(i, i + chunk) //Temparray splits all the cells into blocks of 10 and puts them in temparray
+    rowNum += 1;
+
+    for (let i = 0; i < tempArray.length; i++) {
+      const value = tempArray[i].classList.contains('full'); // Returns a true or false value depending on whether the full class added to any of the cells
+      lineCheck.push(value) // adds it to lineCheck array
+
+    }
+    if (lineCheck.some(isFalse)) { //If any are false do nothing
+      console.log('false');
+
+    } else { // if true splice out the cells of the array
+      cells.splice(rowNum * 10, 10)
+      linesCleared += 1
+      linesClearedTotal += 1 // This needs resetting on game over!!!
+      clearSound()
+      tempArray.forEach(cell => {
+        
+        cell.remove() //removes the cell one by one
+        const newCell = document.createElement('div')
+        newCell.classList.add('cell')
+        //adds the new cells to both the grid and the cells array
+        grid.prepend(newCell) 
+        cells.unshift(newCell)
+
+      })
+    }
+    lineCheck = []
+  }
+  score(linesCleared, linesClearedTotal)
+  levelFunc()
+  topScore()
+
+}
 
 const gameOver = () => {
 

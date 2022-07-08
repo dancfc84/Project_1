@@ -26,6 +26,8 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 ## How the game works
 
+I will describe how the game works and show code where I was met with a challenging problem that needed solving
+
 - When a start button is pressed a 10 x 20 grid is created
 
 - This entails the creation of 200 divs, a class is added to them to style the grid. Each cell is then added to an array called cells.
@@ -64,6 +66,7 @@ I used a setTimeout to move the Tetrimino one row at a time, the speed of the in
 
 - Everytime a shape is removed, there are checks to see whether the future position of the Tetrimino is allowed. If the future move cannot be made, the current cells are marked as full and a new shape is created. If the shape can‘t move right or left or be rotated but can be moved down it continues its descent down the grid.
 
+### Challenge 1 - Removing Shapes and Re-adding them if move is possible
 
  ```
 const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
@@ -111,9 +114,9 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
  ```
 
 
-- When the shape reaches the bottom of the grid or can’t move down past another Tetrimino the class ‘full’ is added to the cell and a new shape created.
+- When the shape reaches the bottom of the grid or can’t move down past another Tetrimino the class ‘full’ is added to the cell and the next shape is added to the grid
 
-## Line Completion
+### Challenge 2 - Line Completion
 
 - I split the cells array into chunks of 10 which signifies a line in my grid, then a for loop iterates through each row of the chunks of 10 cells, if all the cells contain the class ‘full’ the row of cells are removed from the array and the line of divs are removed from the grid.
 
@@ -168,6 +171,8 @@ const checkLines = () => {
 
 - Everytime a line is removed the score, and lines cleared is updated. If you get the top score this is updated as soon as you surpass it. The level is linked to how many rows you have cleared.
 
-## Screenshots Final Product
+
+
+## Screenshot of Final Product
 
 ![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%201.jpg)
