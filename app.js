@@ -420,7 +420,7 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
   const array = eval(currShape)
 
   for (let i = 0; i < array.length; i++) {
-    const futValue = cells[array[futRot][i] + futLoc].classList.contains('full') // adding true or false to an array for our future rotation
+    const futValue = cells[array[futRot][i] + futLoc].classList.contains('full') // adding true or false to an array depending on whether our future rotation is full or not
     futShapeArr.push(futValue); // Adds either true or false for each future element into the array
   }
 
@@ -443,7 +443,7 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
     for (let i = 0; i < array.length; i++) {
       cells[array[currRot][i] + currLoc].classList.remove(currShape)
     }
-    return (futShapeArr.some(isTrue) && (currShapeArr.every(isFalse)) ? false : true //return false if fut shape loc has full cells and curr shape but one down has no full
+    return (futShapeArr.some(isTrue) && (currShapeArr.every(isFalse)) ? false : true //if it
     )
   }
 }

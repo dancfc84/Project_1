@@ -26,15 +26,13 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 ## How the game works
 
-I will describe how the game works and show code where I was met with a challenging problem that needed solving
+- When the start button is pressed a 10 x 20 grid is created
 
-- When a start button is pressed a 10 x 20 grid is created
+- This entails the creation of 200 divs, a class is added to each of them to style the grid. Each cell is then added to an array called cells.
 
-- This entails the creation of 200 divs, a class is added to them to style the grid. Each cell is then added to an array called cells.
+- A current score, a lines cleared count, a top score (stored in the browser using localstorage) and a display showing what level you are currently on is also created
 
-- I also created a score, lines cleared count, stored the top score in the browser using localstorage and a display showing what level you are currently on
-
-- The Tetriminos were created by setting the axis point of the Tetrimino to zero and then created the other three cells from that point. Each shape has four rotations
+- The Tetriminos were created by setting the axis point of the Tetrimino to zero and then the other three cells were creatednfrom that point. Each shape has four rotations
 
 ```
 const ishape =  [
@@ -54,19 +52,19 @@ const oshape = [
 ```
 
 - Before the game starts, I need to create two shapes, the first shape for the main grid and the other for the next shape.
-I used a setTimeout to move the Tetrimino one row at a time, the speed of the intervals between movements vary depending on the level you are on
+  I used a setTimeout to move the Tetrimino down one row at a time, the speed of the intervals between movements vary depending on the level you are on 
 
-- The Tetrimino is added to the grid by assigning the specific class of the shape to the appropriate cells in relation to its current location, for example, ‘jshape’
+- The Tetrimino is added to the grid by assigning the specific class of the current shape to the appropriate cells in relation to its current location.
 
-- Everytime the setTimeout method completes a cycle the shape is removed from the grid (class removed from those cells) and re-added one row below (class added to the new cells)
+- The shape is removed from the grid (class removed from those cells) and re-added one row below (class added to the new cells)
 
-- If arrowleft, arrowright or arrowdown are pressed the Tetrimino will move in the direction pressed on the keyboard, using the same method as stated above.
+- If arrowleft, arrowright or arrowdown are pressed the Tetrimino will move in the direction pressed on the keyboard
 
-- If arrowUp is pressed one will be added to the current rotation of the shape and the next entry in the shapes array will be used to add the class to the cells
+- If arrowUp is pressed one will be added to the current rotation of the shape and the next entry in the shapes array will be used to add the class back to the cells
 
-- Everytime a shape is removed, there are checks to see whether the future position of the Tetrimino is allowed. If the future move cannot be made, the current cells are marked as full and a new shape is created. If the shape can‘t move right or left or be rotated but can be moved down it continues its descent down the grid.
+- Everytime a shape is removed or rotated, there are checks to see whether the future position of the Tetrimino is allowed. If the future move cannot be made, the current cells are marked as full and a new shape is created. If the shape can‘t move right or left or be rotated but can be moved down it continues its descent down the grid.
 
-### Challenge 1 - Removing Shapes and Re-adding them if move is possible
+### Challenge 1 - Removing Shapes and Re-adding them, checking whether the future move is possible
 
  ```
 const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
@@ -112,9 +110,6 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
 }
 
  ```
-
-
-- When the shape reaches the bottom of the grid or can’t move down past another Tetrimino the class ‘full’ is added to the cell and the next shape is added to the grid
 
 ### Challenge 2 - Line Completion
 
@@ -171,6 +166,7 @@ const checkLines = () => {
 
 - Everytime a line is removed the score, and lines cleared is updated. If you get the top score this is updated as soon as you surpass it. The level is linked to how many rows you have cleared.
 
+- When a piece is spawned at the top of the grid which overlaps another piece the game ends
 
 
 ## Screenshot of Final Product
