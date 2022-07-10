@@ -21,6 +21,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - HTML
 - CSS
 - JavaScript (ES6)
+- DOM
 - Git
 - GitHub Pages
 
@@ -32,7 +33,9 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 - A current score, a lines cleared count, a top score (stored in the browser using localstorage) and a display showing what level you are currently on is also created
 
-- The Tetriminos were created by setting the axis point of the Tetrimino to zero and then the other three cells were creatednfrom that point. Each shape has four rotations
+- The Tetriminos were created by setting the axis point of the Tetrimino to zero and then the other three cells were created from that point. Each shape has four rotations
+
+![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%203.jpg)
 
 ```
 const ishape =  [
@@ -65,6 +68,17 @@ const oshape = [
 - Everytime a shape is removed or rotated, there are checks to see whether the future position of the Tetrimino is allowed. If the future move cannot be made, the current cells are marked as full and a new shape is created. If the shape can‘t move right or left or be rotated but can be moved down it continues its descent down the grid.
 
 ### Challenge 1 - Removing Shapes and Re-adding them, checking whether the future move is possible
+
+- This function receives several arguments, including the current shape, location and rotation and also what the future location will be (for example, if the user presses the    left arrow key, this will be the currLoc - 1)
+- The function then finds the four future cells and iterates through them, checking whether the cells for the future location of the shape contain the "full" class
+- It then finds the cells for the current location but one row down and iterates through the four cells to see whether they contain the "full" class
+- If both the future shape array and the current shape one row down array have any cells with the full class, it marks the current cells as full and adds a new shape
+- If that is not the case,  it will check if the move left or right or a rotation is possible, if possible,  it will allow that move and also move the Tetrimino down a row, if the move is not possible, it will just move the Tetrimino down one row anf ignore the key press.
+
+
+![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%204.jpg)
+
+![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%205.jpg)
 
  ```
 const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
@@ -117,7 +131,7 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
 
 - I then used unshift to add the cells back to the array and then prepend to add the divs back to the grid at the top.
  
-
+![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%206.jpg)
 ```
 const checkLines = () => {
   const chunk = 10;
@@ -164,11 +178,13 @@ const checkLines = () => {
 
 ```
 
-- Everytime a line is removed the score, and lines cleared is updated. If you get the top score this is updated as soon as you surpass it. The level is linked to how many rows you have cleared.
+- Everytime a line is removed the score and lines cleared are updated. If you get the top score this is updated as soon as you surpass it. The current level is linked to how many rows you have cleared.
 
 - When a piece is spawned at the top of the grid which overlaps another piece the game ends
 
 
-## Screenshot of Final Product
+## Screenshots of Final Product
 
 ![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%201.jpg)
+
+![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%202.jpg)

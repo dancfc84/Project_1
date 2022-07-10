@@ -409,7 +409,7 @@ const levelFunc = () => {
 const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
   
   const futShapeArr = [];
-  const currShapeArr = []
+  const currShapeOneRowDownArr = []
 
   if (futRot > 3) { // if our rotation is over 3, change to 0
     futRot = 0
@@ -426,13 +426,13 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
 
   for (let i = 0; i < array.length; i++) {
     const currValue = cells[array[currRot][i] + currLoc  + width].classList.contains('full') // adding true or false to an array if the shape one line down is ok
-    currShapeArr.push(currValue); // Adds either true or false for each future element into the array
+    currShapeOneRowDownArr.push(currValue); // Adds either true or false for each future element into the array
   }
 
   const isTrue = (element) => element === true
   const isFalse = (element) => element === false
 
-  if (futShapeArr.some(isTrue) && currShapeArr.some(isTrue)) { //If any elements in futshapearr and currShapeArr are true - true meaning they have the 'full' class
+  if (futShapeArr.some(isTrue) && currShapeOneRowDownArr.some(isTrue)) { //If any elements in futshapearr and currShapeOneRowDownArr are true - true meaning they have the 'full' class
     for (let i = 0; i < array.length; i++) {
       cells[array[currRot][i] + currLoc].classList.add('full') //Mark the current four elements as 'full'
     }
@@ -443,7 +443,7 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
     for (let i = 0; i < array.length; i++) {
       cells[array[currRot][i] + currLoc].classList.remove(currShape)
     }
-    return (futShapeArr.some(isTrue) && (currShapeArr.every(isFalse)) ? false : true //if it
+    return (futShapeArr.some(isTrue) && (currShapeOneRowDownArr.every(isFalse)) ? false : true //if it
     )
   }
 }
@@ -544,7 +544,7 @@ const game =  () => {
   
     if (key === 'ArrowLeft' && rowPosition > 0 && (currShape === 'ishape') && (currRot === 1 || currRot === 3)) { 
       decision = removeShapeGrid(currShape, currLoc, currRot, currLoc - 1, currRot)
-      console.log(`Here is my decision ${decision}`);
+
       if (decision === true) {
         currLoc -= 1 //Go through with move
       } 
