@@ -37,22 +37,6 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 ![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%203.jpg)
 
-```
-const ishape =  [
-  [-1, 0, 1, 2],
-  [- width, 0, width , width * 2],
-  [-1, 0, 1, 2],
-  [- width, 0, width , width * 2]
-]
-
-const oshape = [
-  [+ width, 0, + width + 1, 1],
-  [+ width, 0, + width + 1, 1],
-  [+ width, 0, + width + 1, 1],
-  [+ width, 0, + width + 1, 1]
-]
-
-```
 
 - Before the game starts, I need to create two shapes, the first shape for the main grid and the other for the next shape.
   I used a setTimeout to move the Tetrimino down one row at a time, the speed of the intervals between movements vary depending on the level you are on 
@@ -80,50 +64,6 @@ const oshape = [
 
 ![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%205.jpg)
 
- ```
-const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
-  
-  const futShapeArr = [];
-  const currShapeArr = []
-
-  if (futRot > 3) { // if our rotation is over 3, change to 0
-    futRot = 0
-  }
-
-  //testing takes place here regarding whether its future self can be placed...
-
-  const array = eval(currShape)
-
-  for (let i = 0; i < array.length; i++) {
-    const futValue = cells[array[futRot][i] + futLoc].classList.contains('full') // adding true or false to an array for our future rotation
-    futShapeArr.push(futValue); // Adds either true or false for each future element into the array
-  }
-
-  for (let i = 0; i < array.length; i++) {
-    const currValue = cells[array[currRot][i] + currLoc  + width].classList.contains('full') // adding true or false to an array if the shape one line down is ok
-    currShapeArr.push(currValue); // Adds either true or false for each future element into the array
-  }
-
-  const isTrue = (element) => element === true
-  const isFalse = (element) => element === false
-
-  if (futShapeArr.some(isTrue) && currShapeArr.some(isTrue)) { //If any elements in futshapearr and currShapeArr are true - true meaning they have the 'full' class
-    for (let i = 0; i < array.length; i++) {
-      cells[array[currRot][i] + currLoc].classList.add('full') //Mark the current four elements as 'full'
-    }
-    addNewShape() //add a new shape, create a new next shape
-    
-  } else {
-
-    for (let i = 0; i < array.length; i++) {
-      cells[array[currRot][i] + currLoc].classList.remove(currShape)
-    }
-    return (futShapeArr.some(isTrue) && (currShapeArr.every(isFalse)) ? false : true //return false if fut shape loc has full cells and curr shape but one down has no full
-    )
-  }
-}
-
- ```
 
 ### Challenge 2 - Line Completion
 
@@ -132,51 +72,6 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
 - I then used unshift to add the cells back to the array and then prepend to add the divs back to the grid at the top.
  
 ![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%206.jpg)
-```
-const checkLines = () => {
-  const chunk = 10;
-  let tempArray = [];
-  let lineCheck = [];
-  let linesCleared = 0;
-  let rowNum = -1;
-  const isFalse = (element) => element === false
-  for (let i = 0; i < cells.length; i += chunk) {
-    tempArray = cells.slice(i, i + chunk) //Temparray splits all the cells into blocks of 10 and puts them in temparray
-    rowNum += 1;
-
-    for (let i = 0; i < tempArray.length; i++) {
-      const value = tempArray[i].classList.contains('full'); // Returns a true or false value depending on whether the full class added to any of the cells
-      lineCheck.push(value) // adds it to lineCheck array
-
-    }
-    if (lineCheck.some(isFalse)) { //If any are false do nothing
-      console.log('false');
-
-    } else { // if true splice out the cells of the array
-      cells.splice(rowNum * 10, 10)
-      linesCleared += 1
-      linesClearedTotal += 1 // This needs resetting on game over!!!
-      clearSound()
-      tempArray.forEach(cell => {
-        
-        cell.remove() //removes the cell one by one
-        const newCell = document.createElement('div')
-        newCell.classList.add('cell')
-        //adds the new cells to both the grid and the cells array
-        grid.prepend(newCell) 
-        cells.unshift(newCell)
-
-      })
-    }
-    lineCheck = []
-  }
-  score(linesCleared, linesClearedTotal)
-  levelFunc()
-  topScore()
-
-}
-
-```
 
 - Everytime a line is removed the score and lines cleared are updated. If you get the top score this is updated as soon as you surpass it. The current level is linked to how many rows you have cleared.
 
