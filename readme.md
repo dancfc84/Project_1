@@ -16,6 +16,12 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - The player should be able to rotate each Tetrimino around its own axis
 - If a line is completed it should be removed and the pieces above should move down a row
 
+## Other Features
+
+- Responsive design
+- Speed increases over time
+- Persistent leaderboard using localStorage
+
 ## Technologies Used
 
 - HTML
@@ -35,7 +41,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 - The Tetriminos were created by setting the axis point of the Tetrimino to zero and then the other three cells were created from that point. Each shape has four rotations
 
-![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%203.jpg)
+![Screenshot - Example Tetrimino Array](https://github.com/dancfc84/Project_1/blob/master/screenshots/TetriminoExampleArray.png)
 
 
 - Before the game starts, I need to create two shapes, the first shape for the main grid and the other for the next shape.
@@ -60,9 +66,9 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - If that is not the case,  it will check if the move left or right or a rotation is possible, if possible,  it will allow that move and also move the Tetrimino down a row, if the move is not possible, it will just move the Tetrimino down one row anf ignore the key press.
 
 
-![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%204.jpg)
+![Screenshot - removeShape](https://github.com/dancfc84/Project_1/blob/master/screenshots/removeShapeGrid.png)
 
-![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%205.jpg)
+![Screenshot - ExampleMoveInGame](https://github.com/dancfc84/Project_1/blob/master/screenshots/ExampleMoveTetris.png)
 
 
 ### Challenge 2 - Line Completion
@@ -71,7 +77,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 - I then used unshift to add the cells back to the array and then prepend to add the divs back to the grid at the top.
  
-![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%206.jpg)
+![Screenshot - Check if lines are full](https://github.com/dancfc84/Project_1/blob/master/screenshots/CheckLines.png)
 
 - Everytime a line is removed the score and lines cleared are updated. If you get the top score this is updated as soon as you surpass it. The current level is linked to how many rows you have cleared.
 
@@ -80,6 +86,6 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 ## Screenshots of Final Product
 
-![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%201.jpg)
+![Screenshot - startgame](https://github.com/dancfc84/Project_1/blob/master/screenshots/TetrisStart.png)
 
-![Screenshot - game](https://github.com/dancfc84/Project_1/blob/master/screenshots/Picture%202.jpg)
+![Screenshot - playinggame](https://github.com/dancfc84/Project_1/blob/master/screenshots/TetrisPlaying.png)
