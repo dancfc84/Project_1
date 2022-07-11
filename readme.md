@@ -53,7 +53,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 - If arrowleft, arrowright or arrowdown are pressed the Tetrimino will move in the direction pressed on the keyboard
 
-- If arrowUp is pressed one will be added to the current rotation of the shape and the next entry in the shapes array will be used to add the class back to the cells
+- If arrowUp is pressed the rotation of the shape will change and the next entry in the shapes array will be used to add the class back to the cells
 
 - Everytime a shape is removed or rotated, there are checks to see whether the future position of the Tetrimino is allowed. If the future move cannot be made, the current cells are marked as full and a new shape is created. If the shape can‘t move right or left or be rotated but can be moved down it continues its descent down the grid.
 
