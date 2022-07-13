@@ -1,7 +1,7 @@
 
 ## Overview
 
-In my first project for the General Assembly Software Engineering Flex course, I had one week to build a grid-based game in JavaScript, HTML and CSS. I wanted to challenge myself, so I chose Tetris. This project helped me reinforce and expand my JavaScript skills, I also improved my CSS and responsive web design skills.
+In my first project for the General Assembly Software Engineering Flex course, I had one week to build a grid-based game in JavaScript, HTML and CSS. I wanted to challenge myself, so I chose Tetris. This project helped me reinforce and expand my JavaScript skills, I also improved my CSS and responsive web design ability
 
 ## Brief
 
