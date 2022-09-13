@@ -1,7 +1,31 @@
 
-## Overview
+## Description
 
-In my first project for the General Assembly Software Engineering Flex course, I had one week to build a grid-based game in JavaScript, HTML and CSS. I wanted to challenge myself, so I chose Tetris. This project helped me reinforce and expand my JavaScript skills, I also improved my CSS and responsive web design ability
+In my first project for the General Assembly Software Engineering Immersive course, I had one week to build a grid-based game using JavaScript, HTML and CSS. I wanted to challenge myself, so I chose Tetris. 
+
+You will find the deployed app here:  [Tetris](https://dancfc84.github.io/Project_1)
+
+## Getting started
+
+1.	Download source code via the 'Clone or download' button in GitHub.
+2.	In the root folder open the index.html file in a browser
+
+## Timeframe & Working Team
+
+- Timeframe:
+    - 2 weeks
+
+-	Working Team:
+    -	Solo project
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript (ES6)
+- DOM
+- Git
+- GitHub Pages
 
 ## Brief
 
@@ -10,7 +34,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - Use JavaScript for DOM manipulation
 - Deploy the game using GitHub pages
 
-## Game Requirements
+## Tetris Game Requirements
 
 - The game should stop if a Tetrimino fills the highest row of the game board
 - The player should be able to rotate each Tetrimino around its own axis
@@ -22,14 +46,12 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - Speed increases over time
 - Persistent leaderboard using localStorage
 
-## Technologies Used
+## Planning
 
-- HTML
-- CSS
-- JavaScript (ES6)
-- DOM
-- Git
-- GitHub Pages
+I mapped out all four rotations and the axis point for each shape so I could replicate how the Tetrimino’s should move in my game.
+
+
+
 
 ## How the game works
 
@@ -47,7 +69,7 @@ In my first project for the General Assembly Software Engineering Flex course, I
 - Before the game starts, I need to create two shapes, the first shape for the main grid and the other for the next shape.
   I used a setTimeout to move the Tetrimino down one row at a time, the speed of the intervals between movements vary depending on the level you are on 
 
-- The Tetrimino is added to the grid by assigning the specific class of the current shape to the appropriate cells in relation to its current location.
+- The Tetrimino is added to the grid by assigning the specific class of the current shape to the appropriate cells in relation to its current location
 
 - The shape is removed from the grid (class removed from those cells) and re-added one row below (class added to the new cells)
 
@@ -59,11 +81,11 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 ### Challenge 1 - Removing Shapes and Re-adding them, checking whether the future move is possible
 
-- This function receives several arguments, including the current shape, location and rotation and also what the future location will be (for example, if the user presses the    left arrow key, this will be the currLoc - 1)
+- This function receives several arguments, including the current shape, location and rotation and also what the future location will be (for example, if the user presses the left arrow key, this will be the currLoc minus 1)
 - The function then finds the four future cells and iterates through them, checking whether the cells for the future location of the shape contain the "full" class
 - It then finds the cells for the current location but one row down and iterates through the four cells to see whether they contain the "full" class
-- If both the future shape array and the current shape one row down array have any cells with the full class, it marks the current cells as full and adds a new shape
-- If that is not the case,  it will check if the move left or right or a rotation is possible, if possible,  it will allow that move and also move the Tetrimino down a row, if the move is not possible, it will just move the Tetrimino down one row anf ignore the key press.
+- If both the future shape array and the current shape one row down array have any cells with the full class, it marks the current cells as full and adds a new shape to the grid
+- If that is not the case,  it will check if the move (left, right or a rotation is possible, if possible, it will allow that move and also move the Tetrimino down a row, if the move is not possible, it will just move the Tetrimino down one row and ignore the key press.
 
 
 ![Screenshot - removeShape](https://github.com/dancfc84/Project_1/blob/master/screenshots/removeShapeGrid.png)
@@ -83,6 +105,15 @@ In my first project for the General Assembly Software Engineering Flex course, I
 
 - When a piece is spawned at the top of the grid which overlaps another piece the game ends
 
+## Known Errors or Bugs
+
+- When a key was pressed my game registered multiple key presses instead of just one, this would cause the shape to move or rotate too fast. I added a workaround which allowed only one register per press, however, this took away the ability to hold the down a button and let the shape move in that direction at speed.
+
+## Wins
+
+- Deepened my understanding of JavaScript and the DOM
+- Learnt how to make webpages responsive
+- Gained experience in programmatical thinking and logical problem solving
 
 ## Screenshots of Final Product
 

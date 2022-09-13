@@ -11,6 +11,7 @@ const nextShapeCells = [];
 const shapes = ['ishape', 'jshape', 'oshape', 'lshape', 'zshape', 'tshape', 'sshape'];
 const width = 10;
 const height = 20;
+let timer;
 let currLoc = 4;
 let currRot = 0;
 let currShape = '';
@@ -418,6 +419,8 @@ const removeShapeGrid = (currShape, currLoc, currRot, futLoc, futRot) => {
   //testing takes place here regarding whether its future self can be placed...
 
   const array = eval(currShape)
+
+  console.table(array)
 
   for (let i = 0; i < array.length; i++) {
     const futValue = cells[array[futRot][i] + futLoc].classList.contains('full') // adding true or false to an array depending on whether our future rotation is full or not
