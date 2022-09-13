@@ -83,7 +83,7 @@ I also created a basic wireframe for how I wanted my game to look in the browser
 -	When a shape is removed or rotated, there are checks to see whether the future position of the Tetrimino is allowed. If the future move cannot be made, the current cells are marked as full, and a new shape is created on the grid. If the shape cannot move right or left or be rotated but can be moved down, it continues its descent down the grid.
 
 
-### Challenges
+## Challenges
 
 ### Featured Code: Removing Shapes and Re-adding them, checking whether the future move is possible
 
